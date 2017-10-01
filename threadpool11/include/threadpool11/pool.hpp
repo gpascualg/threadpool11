@@ -30,6 +30,8 @@ This file is part of threadpool11.
 #include <memory>
 #include <mutex>
 
+#include <boost/lockfree/lockfree_forward.hpp>
+
 #if defined(WIN32) && defined(threadpool11_DLL)
 #ifdef threadpool11_EXPORTING
 #define threadpool11_EXPORT __declspec(dllexport)
@@ -39,19 +41,6 @@ This file is part of threadpool11.
 #else
 #define threadpool11_EXPORT
 #endif
-
-namespace boost {
-namespace parameter {
-struct void_;
-}
-namespace lockfree {
-template <typename T,
-          class A0,
-          class A1,
-          class A2>
-class queue;
-}
-}
 
 namespace threadpool11 {
 
@@ -218,7 +207,7 @@ private:
 
   std::unique_ptr<
       boost::lockfree::
-          queue<Work::Callable*, boost::parameter::void_, boost::parameter::void_, boost::parameter::void_>>
+          queue<Work::Callable*>>
       work_queue_;
   std::atomic<size_t> work_queue_size_;
 };
