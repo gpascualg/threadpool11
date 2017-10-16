@@ -43,7 +43,10 @@ void Pool::waitAll() {
   notify_all_finished_signal_.wait(notify_all_finished_lock, [this]() { return are_all_really_finished_.load(); });
 }
 
-void Pool::joinAll() { decWorkerCountBy(std::numeric_limits<size_t>::max(), Method::SYNC); }
+void Pool::joinAll() { 
+    decWorkerCountBy(std::numeric_limits<size_t>::max(), Method::SYNC); 
+    while (getWorkerCount() > 0) { }
+}
 
 size_t Pool::getWorkerCount() const { return worker_count_.load(); }
 
