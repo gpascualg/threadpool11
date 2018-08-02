@@ -17,6 +17,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 option("Use system boost" OFF)
+option(BUILD_TESTS "Build test programs" OFF)
 
 set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Release" "Debug" "Perf")
 
@@ -25,4 +26,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 
 add_subdirectory(threadpool11)
-add_subdirectory(threadpool11_demo)
+
+if (BUILD_TESTS)
+  add_subdirectory(threadpool11_demo)
+endif()
