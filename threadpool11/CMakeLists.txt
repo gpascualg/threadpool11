@@ -13,7 +13,7 @@ else()
         # Lockfree dependencies
         lockfree core config assert static_assert type_traits mpl preprocessor
         array throw_exception functional align parameter atomic detail
-        utility predef winapi tti
+        utility predef winapi tti fusion
     )
 
     foreach (dep ${BOOST_DEPENDENCIES})
