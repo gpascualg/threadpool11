@@ -1,11 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
-project(threadpool11 CXX)
+cmake_minimum_required(VERSION 3.5)
+project(Shinzui)
 
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake-utils)
+# -[ CMake-Utils
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake-utils)
 
-# -[ Macros
-include(Macros)
+# -[ Macros and functions
 include(Configure)
+include(Macros)
 include(External)
 ResetAllTargets()
 
