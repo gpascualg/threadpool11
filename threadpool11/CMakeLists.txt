@@ -22,7 +22,7 @@ else()
             EXCLUDE
             SKIP_CONFIGURE
             SKIP_BUILD
-            MODULE "boostorg/${dep}:develop"
+            MODULE "boostorg/${dep}:boost-1.69.0"
             INSTALL_INCLUDE
         )
     endforeach()
