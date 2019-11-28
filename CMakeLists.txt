@@ -19,6 +19,7 @@ endif()
 
 option("Use system boost" OFF)
 option(BUILD_TESTS "Build test programs" OFF)
+set(BOOST_VERSION "1.71" CACHE STRING "Boost version")
 
 set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Release" "Debug" "Perf")
 
