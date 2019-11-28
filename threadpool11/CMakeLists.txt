@@ -1,7 +1,7 @@
 CreateTarget(TARGET threadpool11)
 
 if (USE_SYSTEM_BOOST)
-    find_package(Boost 1.62 REQUIRED)
+    find_package(Boost ${BOOST_VERSION} REQUIRED)
     set(BOOST_DEPENDENCIES "")
 
     AddDependency(
@@ -22,7 +22,7 @@ else()
             EXCLUDE
             SKIP_CONFIGURE
             SKIP_BUILD
-            MODULE "boostorg/${dep}:boost-1.69.0"
+            MODULE "boostorg/${dep}:boost-${BOOST_VERSION}.0"
             INSTALL_INCLUDE
         )
     endforeach()
